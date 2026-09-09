@@ -1,6 +1,7 @@
 package co.edu.uco.libreriauco.dominio;
 import java.util.UUID;
 import co.edu.uco.libreriauco.transversal.utilitarios.UtilTexto;
+import co.edu.uco.libreriauco.transversal.utilitarios.UtilUUID;
 
 public class PaisDominio {
 	
@@ -27,12 +28,12 @@ public class PaisDominio {
 		private String nombre;
 		
 		public Builder() {
-			id = UtilUUID.ObtenerUUIDDefecto();
+			id = UtilUUID.obtenerUUIDDefecto();
 			nombre = UtilTexto.VACIO;
 		}
 		
-		public Builder id(UUDID id) {
-			this.id = UtilUUID.ObtenerValorDefecto(id);
+		public Builder id(UUID id) {
+			this.id = UtilUUID.obtenerValorDefecto(id);
 			return this;
 		}
 		

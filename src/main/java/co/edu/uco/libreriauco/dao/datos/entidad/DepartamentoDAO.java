@@ -1,7 +1,10 @@
 package co.edu.uco.libreriauco.dao.datos.entidad;
 
-import co.edu.uco.libreriauco.dao.datos.ConsultarDAO;
+import java.util.UUID;
 
-public interface DepartamentoDAO extends ConsultarDAO<> {
+import co.edu.uco.libreriauco.dao.datos.ConsultarDAO;
+import co.edu.uco.libreriauco.entidad.DepartamentoEntidad;
+
+public interface DepartamentoDAO extends ConsultarDAO<DepartamentoEntidad, UUID> {
 
 }

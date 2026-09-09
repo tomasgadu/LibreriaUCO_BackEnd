@@ -1,9 +1,9 @@
 package co.edu.uco.libreriauco.dao.datos.entidad.sqlserver;
 
 import java.util.List;
+import java.util.UUID;
 
 import co.edu.uco.libreriauco.dao.datos.entidad.PaisDAO;
-import co.edu.uco.libreriauco.dao.datos.entidad.UUID;
 import co.edu.uco.libreriauco.entidad.PaisEntidad;
 
 public class PaisSqlServerDAO implements PaisDAO {

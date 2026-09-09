@@ -2,6 +2,7 @@ package co.edu.uco.libreriauco.dominio;
 import java.util.UUID;
 import co.edu.uco.libreriauco.transversal.utilitarios.UtilObjeto;
 import co.edu.uco.libreriauco.transversal.utilitarios.UtilTexto;
+import co.edu.uco.libreriauco.transversal.utilitarios.UtilUUID;
 
 public class CiudadDominio {
 	
@@ -36,13 +37,13 @@ public class CiudadDominio {
 		private DepartamentoDominio departamento;
 		
 		public Builder() {
-			id = UtilUUID.ObtenerUUIDDefecto();
+			id = UtilUUID.obtenerUUIDDefecto();
 			nombre = UtilTexto.VACIO;
 			departamento = new DepartamentoDominio.Builder().build();
 		}
 		
-		public Builder id(UUDID id) {
-			this.id = UtilUUID.ObtenerValorDefecto(id);
+		public Builder id(UUID id) {
+			this.id = UtilUUID.obtenerValorDefecto(id);
 			return this;
 		}
 		
@@ -57,7 +58,7 @@ public class CiudadDominio {
 		}
 		
 		public CiudadDominio build() {
-			return new CiudadDominio(this)
+			return new CiudadDominio(this);
 		}
 	}
 }

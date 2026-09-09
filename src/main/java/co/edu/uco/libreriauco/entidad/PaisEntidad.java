@@ -1,6 +1,7 @@
 package co.edu.uco.libreriauco.entidad;
 import java.util.UUID;
 import co.edu.uco.libreriauco.transversal.utilitarios.UtilTexto;
+import co.edu.uco.libreriauco.transversal.utilitarios.UtilUUID;
 
 public class PaisEntidad {
 	

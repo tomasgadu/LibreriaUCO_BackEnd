@@ -1,6 +1,7 @@
 package co.edu.uco.libreriauco.pruebas;
 
 import co.edu.uco.libreriauco.dominio.PaisDominio;
+import co.edu.uco.libreriauco.transversal.utilitarios.UtilUUID;
 
 public class PruebaBuilder {
 	

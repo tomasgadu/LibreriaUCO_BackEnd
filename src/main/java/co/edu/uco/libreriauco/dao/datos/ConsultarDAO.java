@@ -10,5 +10,4 @@ public interface ConsultarDAO <E, ID> {
 	
 	List<E> consultarTodos();
 
-
 }

@@ -2,6 +2,7 @@ package co.edu.uco.libreriauco.dto;
 import java.util.UUID;
 import co.edu.uco.libreriauco.transversal.utilitarios.UtilObjeto;
 import co.edu.uco.libreriauco.transversal.utilitarios.UtilTexto;
+import co.edu.uco.libreriauco.transversal.utilitarios.UtilUUID;
 
 public class CiudadDTO {
 	
@@ -11,7 +12,7 @@ public class CiudadDTO {
 	
 	
 	public CiudadDTO() {
-		setId(UtilUUID.obtenerValorDefecto());
+		setId(UtilUUID.obtenerUUIDDefecto());
 		setNombre(UtilTexto.VACIO);
 		setDepartamento(new DepartamentoDTO());
 	}

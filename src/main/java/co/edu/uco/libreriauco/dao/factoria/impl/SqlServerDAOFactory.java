@@ -12,19 +12,16 @@ public class SqlServerDAOFactory extends DAOFactory{
 	protected void abrirConexion() {
 		//TAREA: ¿Como abrir una conexion con SQL Server desde java?	
 		Connection conexion = null;
-		setConexion(conexion);
-		
+		setConexion(conexion);	
 	}
 
 	@Override
 	public PaisDAO obtenerPaisDAO() {
-
 		return new PaisSqlServerDAO();
 	}
 
 	@Override
 	public DepartamentoDAO obtenerDepartamentoDAO() {
-
 		return new DepartamentoSqlServerDAO();
 	}
 

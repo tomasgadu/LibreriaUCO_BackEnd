@@ -4,19 +4,22 @@ import co.edu.uco.libreriauco.transversal.excepciones.enums.Capa;
 
 public class LibreriaUCOControladorException extends LibreriaUCOExcepcion {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 2781462033546993220L;
 
-	protected LibreriaUCOControladorException(Capa capa, String mensajeUsuario, String mensajeTecnico,
+	private LibreriaUCOControladorException(String mensajeUsuario, String mensajeTecnico,
 			Exception excepcionRaiz) {
-		super(capa.CONTROLADOR, mensajeUsuario, mensajeTecnico, excepcionRaiz);
-		// TODO Auto-generated constructor stub
+		super(Capa.CONTROLADOR, mensajeUsuario, mensajeTecnico, excepcionRaiz);
 	}
 	
 	public static LibreriaUCOExcepcion crear(String mensajeUsuario) {
-		return new LibreriaUCOControladorException(mensajeUsuario, mensajeUsuario, new Exception(mensajeUsuario));
-		
+		return new LibreriaUCOControladorException(mensajeUsuario, mensajeUsuario, new Exception(mensajeUsuario));	
+	}
+	
+	public static LibreriaUCOExcepcion crear(String mensajeUsuario,String mensajeTecnico) {
+		return new LibreriaUCOControladorException(mensajeUsuario, mensajeTecnico, new Exception(mensajeTecnico));	
+	}
+	
+	public static LibreriaUCOExcepcion crear(String mensajeUsuario,String mensajeTecnico, Exception excepcionRaiz) {
+		return new LibreriaUCOControladorException(mensajeUsuario, mensajeTecnico, new Exception(excepcionRaiz));	
 	}
 }

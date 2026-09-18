@@ -15,12 +15,14 @@ public class LibreriaUCOExcepcion extends RuntimeException {
 	private String mensajeTecnico;
 	private Exception excepcionRaiz;
 	
-	protected LibreriaUCOExcepcion(Capa capa, String mensajeUsuario, String mensajeTecnico, Exception excepcionRaiz) {
+	protected LibreriaUCOExcepcion(Capa capa, 
+			String mensajeUsuario, 
+			String mensajeTecnico, Exception excepcionRaiz) {
 		super();
 		setCapa(capa);
 		setMensajeUsuario(mensajeUsuario);
 		setMensajeTecnico(mensajeTecnico);
-		setMensajeTecnico(mensajeTecnico);
+		setExcepcionRaiz(excepcionRaiz);
 	}
 
 	public static long getSerialversionuid() {
@@ -59,9 +61,4 @@ public class LibreriaUCOExcepcion extends RuntimeException {
 		this.excepcionRaiz = UtilObjeto.obtenerValorDefectoSiValorOriginalEsNulo(excepcionRaiz, new Exception(getMensajeTecnico()));
 	}
 	
-	
-	
-	
-	
-
 }

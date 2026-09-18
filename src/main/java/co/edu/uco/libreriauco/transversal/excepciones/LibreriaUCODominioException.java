@@ -2,13 +2,13 @@ package co.edu.uco.libreriauco.transversal.excepciones;
 
 import co.edu.uco.libreriauco.transversal.excepciones.enums.Capa;
 
-public class LibreriaUCODatosException extends LibreriaUCOExcepcion {
+public class LibreriaUCODominioException extends LibreriaUCOExcepcion {
 
 	private static final long serialVersionUID = 2781462033546993220L;
 
-	private LibreriaUCODatosException(String mensajeUsuario, String mensajeTecnico,
+	private LibreriaUCODominioException(String mensajeUsuario, String mensajeTecnico,
 			Exception excepcionRaiz) {
-		super(Capa.DATOS, mensajeUsuario, mensajeTecnico, excepcionRaiz);
+		super(Capa.DOMINIO, mensajeUsuario, mensajeTecnico, excepcionRaiz);
 	}
 	
 }

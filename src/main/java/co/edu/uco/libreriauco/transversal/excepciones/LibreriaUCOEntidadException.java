@@ -12,4 +12,16 @@ public class LibreriaUCOEntidadException extends LibreriaUCOExcepcion {
 		super(Capa.ENTIDAD, mensajeUsuario, mensajeTecnico, excepcionRaiz);
 	}
 	
+	public static LibreriaUCOExcepcion crear(String mensajeUsuario) {
+		return new LibreriaUCOEntidadException(mensajeUsuario, mensajeUsuario, new Exception(mensajeUsuario));	
+	}
+	
+	public static LibreriaUCOExcepcion crear(String mensajeUsuario,String mensajeTecnico) {
+		return new LibreriaUCOEntidadException(mensajeUsuario, mensajeTecnico, new Exception(mensajeTecnico));	
+	}
+	
+	public static LibreriaUCOExcepcion crear(String mensajeUsuario,String mensajeTecnico, Exception excepcionRaiz) {
+		return new LibreriaUCOEntidadException(mensajeUsuario, mensajeTecnico, new Exception(excepcionRaiz));	
+	}
+	
 }

@@ -9,6 +9,7 @@ import co.edu.uco.libreriauco.entidad.PaisEntidad;
 import co.edu.uco.libreriauco.negocio.negocio.PaisNegocio;
 import co.edu.uco.libreriauco.negocio.negocio.assembler.impl.PaisEntidadAssembler;
 import co.edu.uco.libreriauco.transversal.catalogo.CatalogoMensajes;
+import co.edu.uco.libreriauco.transversal.excepciones.LibreriaUCONegocioException;
 
 public class PaisNegocioImpl implements PaisNegocio {
 
@@ -21,7 +22,7 @@ public class PaisNegocioImpl implements PaisNegocio {
 	@Override
 	public void registrarInformacionNuevoPais(PaisDominio datos) {
 		asegurarDatosRegistroNuevoPaisValidos(datos);
-		asegurarNombrePaisNoExiste(datos.getNombre());
+		asegurarNombreNuevoPaisNoExista(datos.getNombre());
 
 		var paisEntidad = PaisEntidadAssembler.getInstance().convertirAEntidad(datos);
 		paisEntidad.setId(generarIdPaisUnico());
@@ -37,14 +38,15 @@ public class PaisNegocioImpl implements PaisNegocio {
 
 	}
 
-	private void asegurarNombrePaisNoExiste(String nombrePais) {
+	private void asegurarNombreNuevoPaisNoExista(String nombrePais) {
 		var entidadFiltro = new PaisEntidad();
 		entidadFiltro.setNombre(nombrePais);
 	
 		var resultados = daoFactory.obtenerPaisDAO().consultarPorFiltro(entidadFiltro);
 		
 		if(!resultados.isEmpty()) {
-			var mensajeUsuario = CatalogoMensajes.PaisNegocioImpl.
+			var mensajeUsuario = CatalogoMensajes.PaisNegocioImpl.PAIS_EXISTE_CON_EL_MISMO_NOMBRE_DE_PAIS_A_CREAR;
+			throw LibreriaUCONegocioException.crear(mensajeUsuario);
 		}
 
 	}

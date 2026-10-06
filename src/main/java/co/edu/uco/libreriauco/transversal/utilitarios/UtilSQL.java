@@ -34,6 +34,8 @@ public class UtilSQL {
 
 
 	public static void iniciarTransaccion(Connection conexion) {
+		
+		asegurarConexionAbierta(conexion);
 
 		if (transaccionEstaIniciada(conexion)) {
 			var mensajeUsuario = CatalogoMensajes.UtilSQL.USUARIO_ERROR_NO_ES_POSIBLE_INICIAR_TRANSACCION_SQL;
@@ -41,6 +43,17 @@ public class UtilSQL {
 		}
 
 		// TAREA QUE SE TENIA DE COMO INICIAR LA TRANSACCION
+		
+		try {
+			conexion.setAutoCommit(false);
+		} catch (SQLException exception) {
+			var mensajeUsuario = CatalogoMensajes.UtilSQL.USUARIO_ERROR_PROBLEMA_INICIANDO_TRANSACCION_SQL;
+			throw LibreriaUCOTransversalException.crear(mensajeUsuario, exception.getMessage(), exception);
+
+		} catch (Exception exception) {
+			var mensajeUsuario = CatalogoMensajes.UtilSQL.USUARIO_ERROR_PROBLEMA_NO_CONTROLADO_INICIANDO_TRANSACCION_SQL;
+			throw LibreriaUCOTransversalException.crear(mensajeUsuario, exception.getMessage(), exception);
+		}
 
 	}
 
@@ -52,6 +65,17 @@ public class UtilSQL {
 		}
 
 		// TAREA QUE SE TENIA DE COMO CONFIRMAR LA TRANSACCION
+		
+		try {
+			conexion.commit();
+		} catch (SQLException exception) {
+			var mensajeUsuario = CatalogoMensajes.UtilSQL.USUARIO_ERROR_PROBLEMA_CONFIRMANDO_TRANSACCION_SQL;
+			throw LibreriaUCOTransversalException.crear(mensajeUsuario, exception.getMessage(), exception);
+
+		} catch (Exception exception) {
+			var mensajeUsuario = CatalogoMensajes.UtilSQL.USUARIO_ERROR_PROBLEMA_NO_CONTROLADO_CONFIRMANDO_TRANSACCION_SQL;
+			throw LibreriaUCOTransversalException.crear(mensajeUsuario, exception.getMessage(), exception);
+		}
 
 	}
 
@@ -63,6 +87,17 @@ public class UtilSQL {
 		}
 
 		// TAREA QUE SE TENIA DE COMO CANCELAR LA TRANSACCION
+		
+		try {
+			conexion.rollback();
+		} catch (SQLException exception) {
+			var mensajeUsuario = CatalogoMensajes.UtilSQL.USUARIO_ERROR_PROBLEMA_CANCELANDO_TRANSACCION_SQL;
+			throw LibreriaUCOTransversalException.crear(mensajeUsuario, exception.getMessage(), exception);
+
+		} catch (Exception exception) {
+			var mensajeUsuario = CatalogoMensajes.UtilSQL.USUARIO_ERROR_PROBLEMA_NO_CONTROLADO_CANCELANDO_TRANSACCION_SQL;
+			throw LibreriaUCOTransversalException.crear(mensajeUsuario, exception.getMessage(), exception);
+		}
 
 	}
 
@@ -74,6 +109,17 @@ public class UtilSQL {
 		}
 
 		// TAREA QUE SE TENIA DE COMO CERRAR LA CONEXION
+		
+		try {
+			conexion.close();
+		} catch (SQLException exception) {
+			var mensajeUsuario = CatalogoMensajes.UtilSQL.USUARIO_ERROR_PROBLEMA_CERRANDO_CONEXION_SQL;
+			throw LibreriaUCOTransversalException.crear(mensajeUsuario, exception.getMessage(), exception);
+
+		} catch (Exception exception) {
+			var mensajeUsuario = CatalogoMensajes.UtilSQL.USUARIO_ERROR_PROBLEMA_NO_CONTROLADO_CERRANDO_CONEXION_SQL;
+			throw LibreriaUCOTransversalException.crear(mensajeUsuario, exception.getMessage(), exception);
+		}
 
 	}
 

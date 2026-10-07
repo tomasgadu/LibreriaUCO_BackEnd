@@ -8,6 +8,7 @@ import co.edu.uco.libreriauco.dominio.PaisDominio;
 import co.edu.uco.libreriauco.entidad.PaisEntidad;
 import co.edu.uco.libreriauco.negocio.negocio.PaisNegocio;
 import co.edu.uco.libreriauco.negocio.negocio.assembler.impl.PaisEntidadAssembler;
+import co.edu.uco.libreriauco.negocio.negocio.reglas.impl.pais.AsegurarNombreNuevoPaisNoExistaRule;
 import co.edu.uco.libreriauco.transversal.catalogo.CatalogoMensajes;
 import co.edu.uco.libreriauco.transversal.excepciones.LibreriaUCONegocioException;
 
@@ -22,7 +23,8 @@ public class PaisNegocioImpl implements PaisNegocio {
 	@Override
 	public void registrarInformacionNuevoPais(PaisDominio datos) {
 		asegurarDatosRegistroNuevoPaisValidos(datos);
-		asegurarNombreNuevoPaisNoExista(datos.getNombre());
+		
+		AsegurarNombreNuevoPaisNoExistaRule.obtenerInstancia().ejecutar(datos.getNombre(), daoFactory);;
 
 		var paisEntidad = PaisEntidadAssembler.getInstance().convertirAEntidad(datos);
 		paisEntidad.setId(generarIdPaisUnico());
@@ -31,6 +33,7 @@ public class PaisNegocioImpl implements PaisNegocio {
 
 		// RulePattern, Validator Pattern, Specification Pattern
 		// Cómo valido con Rule Pattern y Specification Pattern
+		
 
 	}
 

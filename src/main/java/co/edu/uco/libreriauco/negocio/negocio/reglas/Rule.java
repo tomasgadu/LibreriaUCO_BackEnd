@@ -4,5 +4,4 @@ public interface Rule<O> {
 	
 	void ejecutar(O... datos);
 
-
 }

@@ -8,7 +8,7 @@ import co.edu.uco.libreriauco.transversal.excepciones.LibreriaUCONegocioExceptio
 
 public class AsegurarNombreNuevoPaisNoExistaRule implements Rule<Object> {
 
-	private static final AsegurarNombreNuevoPaisNoExistaRule instancia = new AsegurarNombreNuevoPaisNoExistaRule();
+	private static final  Rule<Object> instancia = new AsegurarNombreNuevoPaisNoExistaRule();
 
 	private AsegurarNombreNuevoPaisNoExistaRule() {	
 	}

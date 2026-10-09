@@ -17,7 +17,7 @@ public class PaisNegocioImpl implements PaisNegocio {
 
 	private DAOFactory daoFactory;
 
-	protected PaisNegocioImpl(DAOFactory daoFactory) {
+	public PaisNegocioImpl(DAOFactory daoFactory) {
 		this.daoFactory = daoFactory;
 	}
 

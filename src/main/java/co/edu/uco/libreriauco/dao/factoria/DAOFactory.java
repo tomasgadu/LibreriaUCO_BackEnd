@@ -19,7 +19,6 @@ public abstract class DAOFactory {
 		switch (factoria) {
 		case SQLSERVER:
 			return new SqlServerDAOFactory();
-
 		default:
 			var mensajeUsuario = "La fuente de información deseada que se solxicitó para llevar a cabo la poperación no está habilitada. Por favor contacte el administrador de la aplicación";
 			throw LibreriaUCODatosException.crear(mensajeUsuario);

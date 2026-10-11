@@ -8,7 +8,7 @@ public class LibreriaUCOFachadaException extends LibreriaUCOExcepcion {
 
 	private LibreriaUCOFachadaException(String mensajeUsuario, String mensajeTecnico,
 			Exception excepcionRaiz) {
-		super(Capa.NEGOCIO, mensajeUsuario, mensajeTecnico, excepcionRaiz);
+		super(Capa.FACHADA, mensajeUsuario, mensajeTecnico, excepcionRaiz);
 		
 	}
 	

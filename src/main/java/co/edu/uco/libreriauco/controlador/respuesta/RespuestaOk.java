@@ -16,8 +16,8 @@ public class RespuestaOk<D> extends Respuesta<D> {
 		return new RespuestaOk<>(List.of(), datos);
 	}
 
-	public static <D> RespuestaOk<D> crear(D datos) {
-		return new RespuestaOk<>(List.of(), List.of());
+	public static <D> RespuestaOk<D> crear(D dato) {
+		return new RespuestaOk<>(List.of(), List.of(dato));
 	}
 
 	public static <D> RespuestaOk<D> crear() {

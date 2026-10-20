@@ -14,12 +14,12 @@ import co.edu.uco.libreriauco.controlador.AbstractRestController;
 public class PaisControlador extends AbstractRestController {
 
 	@GetMapping
-	public String registrarInformacionNuevoPais() {
-		return "Ahora sí mono! Método GET exitoso";
+	public String consultarTodos() {
+		return "Ahora sí mono! Método GET exitoso"; //TODOS LOS MENSAJES DEBEN IR EN EL CATALOGO DE MENSAJES
 	}
 
 	@PostMapping
-	public String registrarInformacionNuevoPais2() {
+	public String registrarInformacionNuevoPais() {
 		return "Ahora sí mono! Método POST exitoso";
 	}
 

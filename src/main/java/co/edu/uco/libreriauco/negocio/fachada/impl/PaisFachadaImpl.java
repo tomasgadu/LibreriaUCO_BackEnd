@@ -73,7 +73,7 @@ public class PaisFachadaImpl implements PaisFachada {
 	}
 
 	@Override
-	public List<PaisDTO> consultraPorFiltro(PaisDTO filtro) {
+	public List<PaisDTO> consultarPorFiltro(PaisDTO filtro) {
 		// TODO Auto-generated method stub
 		return null;
 	}

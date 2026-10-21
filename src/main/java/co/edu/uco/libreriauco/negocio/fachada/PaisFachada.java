@@ -13,7 +13,7 @@ public interface PaisFachada {
 
 	void darBajaInformacionPaisExistente(UUID id);
 
-	List<PaisDTO> consultraPorFiltro(PaisDTO filtro);
+	List<PaisDTO> consultarPorFiltro(PaisDTO filtro);
 
 	List<PaisDTO> consultarTodos();
 

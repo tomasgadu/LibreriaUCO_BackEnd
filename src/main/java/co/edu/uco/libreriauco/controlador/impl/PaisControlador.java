@@ -23,8 +23,6 @@ import co.edu.uco.libreriauco.negocio.fachada.impl.PaisFachadaImpl;
 @RequestMapping("/api/v1/paises")
 public class PaisControlador extends AbstractRestController {
 
-	private PaisFachada fachada = new PaisFachadaImpl();
-
 	@GetMapping("/dummy")
 	public PaisDTO obtenerDummy() {
 		return new PaisDTO();
@@ -32,6 +30,7 @@ public class PaisControlador extends AbstractRestController {
 
 	@PostMapping
 	public ResponseEntity<RespuestaOk<String>> registrarInformacionNuevoPais(@RequestBody PaisDTO pais) {
+		PaisFachada fachada = new PaisFachadaImpl();
 		fachada.registrarInformacionNuevoPais(pais);
 		RespuestaOk<String> respuesta = RespuestaOk
 				.crear("Se ha registrado la información del nuevo país de forma exitosa.");
@@ -40,6 +39,7 @@ public class PaisControlador extends AbstractRestController {
 
 	@GetMapping("/{id}")
 	public ResponseEntity<RespuestaOk<PaisDTO>> consultarPorId(@PathVariable UUID id) {
+		PaisFachada fachada = new PaisFachadaImpl();
 		var pais = fachada.consultarPorId(id);
 		RespuestaOk<PaisDTO> respuesta = RespuestaOk.crear(pais);
 		return ResponseEntity.ok(respuesta);
@@ -56,6 +56,7 @@ public class PaisControlador extends AbstractRestController {
 
 	@GetMapping
 	public ResponseEntity<RespuestaOk<PaisDTO>> consultraPorFiltro(PaisDTO filtro) {
+		PaisFachada fachada = new PaisFachadaImpl();
 		var paises = fachada.consultarPorFiltro(filtro);
 		RespuestaOk<PaisDTO> respuesta = RespuestaOk.crear(paises);
 		return ResponseEntity.ok(respuesta);
@@ -64,6 +65,7 @@ public class PaisControlador extends AbstractRestController {
 	@PutMapping("/{id}")
 	public ResponseEntity<RespuestaOk<String>> modificarInformacionPaisExistente(@PathVariable UUID id,
 			@RequestBody PaisDTO datos) {
+		PaisFachada fachada = new PaisFachadaImpl();
 		fachada.modificarInformacionPaisExistente(id, datos);
 		RespuestaOk<String> respuesta = RespuestaOk
 				.crear("Se ha modificado la información del país deseado de forma exitosa.");
@@ -72,6 +74,7 @@ public class PaisControlador extends AbstractRestController {
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<RespuestaOk<String>> darBajaInformacionPaisExistente(@PathVariable UUID id) {
+		PaisFachada fachada = new PaisFachadaImpl();
 		fachada.darBajaInformacionPaisExistente(id);
 		RespuestaOk<String> respuesta = RespuestaOk
 				.crear("Se ha eliminado la información del país deseado de forma exitosa.");

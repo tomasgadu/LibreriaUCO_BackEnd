@@ -32,7 +32,7 @@ public abstract class AbstractRestController {
 
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<RespuestaError<String>> controlarException(Exception excepcion) {
-		var mensajeRespuesta = "Se ha presentado un probkema inesperado tratando de llevar a cabo la operación deseada. Por favor intente de nuevo y si el problema persiste informele al administrador de la aplicación y entreguele el código que se muestra a continuación. ";
+		var mensajeRespuesta = "Se ha presentado un problema inesperado tratando de llevar a cabo la operación deseada. Por favor intente de nuevo y si el problema persiste informele al administrador de la aplicación y entreguele el código que se muestra a continuación. ";
 		var respuesta = RespuestaError.crear(mensajeRespuesta);
 		// Logger.printException(excepcion);
 		excepcion.printStackTrace(); //ESTO NO PUEDE APARECER EN EL FINAL 
